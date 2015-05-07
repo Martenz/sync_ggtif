@@ -16,8 +16,8 @@ from daemon import Daemon
 
 ########### main path ###############################################################
 
-geonode_uploaded_dir = 'E:\\bonimar\\Python_Code\\test\\geonode\\'
-geoserver_data_dir = 'E:\\bonimar\\Python_Code\\test\\geoserver\\'
+geonode_uploaded_dir = 'yourpath..\\geonode\\'
+geoserver_data_dir = 'yourpath..\\geoserver\\'
 extension = '.tif'
 
 #####################################################################################
