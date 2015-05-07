@@ -46,5 +46,5 @@ class App():
                 time.sleep(1)
 
 app = App()
-deamon_runner = runner.DeamonRunner(app)
+deamon_runner = runner.DaemonRunner(app)
 deamon_runner.do_action()
