@@ -2,7 +2,7 @@ Sync deleted geotiff Geonode and Geoserver folders
 ===============
  Service to Sync deleted geotiff from Geonode with Geoserver folder the service delete all geoserver folders which does not have the correspondig geotiff file in the geonode folder.
 
-GeoNode Installation
+How to use the code:
 ====================
 
 To run the service::
