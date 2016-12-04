@@ -1,3 +1,5 @@
-Synch Geoserver folder and Geonode Uploaded Folder 
-===========
+Synch Geoserver folder and Geonode Uploaded Folder:::
+
+
+
 Usefull when you delete Rasters from the Geonode GUI but it doesent delete them on Geoserver
