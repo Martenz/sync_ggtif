@@ -1,16 +1,18 @@
-GeoNode Support
+Sync deleted geotiff Geonode and Geoserver folders
 ===============
-
-To get support, give feedback and suggestions please use the GeoNode official channels, the users mailing list: http://lists.osgeo.org/pipermail/geonode-users/ and the developers mailing list: http://lists.osgeo.org/pipermail/geonode-devel/.
-
-This repository is used to track code changes and GeoNode issues, please DON'T open new issues to ask for support.
-
+ Service to Sync deleted geotiff from Geonode with Geoserver folder the service delete all geoserver folders which does not have the correspondig geotiff file in the geonode folder.
 
 GeoNode Installation
 ====================
 
-If you just want to try GeoNode, it is recommended to use Ubuntu 14.04 and install the latest stable release of GeoNode.::
+To run the service::
 
-    sudo add-apt-repository ppa:geonode/release
-    sudo apt-get update
-    sudo apt-get install geonode
+    python sync_ggtif_service.py start
+
+To stop the service::
+
+    python sync_ggtif_service.py stop
+
+To restart the service::
+
+    python sync_ggtif_service.py restart
