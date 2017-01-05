@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/python
 
 ### Service to Sync deleted geotiff from Geonode with Geoserver folder
 ### the service delete all geoserver folders which does not have
@@ -12,7 +13,7 @@ import sys
 import os
 import shutil
 import time
-from daemon import Daemon
+from daemon import runner
 
 ########### main path ###############################################################
 
@@ -22,7 +23,13 @@ extension = '.tif'
 
 #####################################################################################
 
-class YourCode(object):
+class App():
+        def __init__(self):
+                self.stdin_path = '/dev/null'
+                self.stdout_path = '/dev/tty'
+                self.stderr_path = '/dev/tty'
+                self.pidfile_path =  '/tmp/foo.pid'
+                self.pidfile_timeout = 5
         def run(self):
             while True:
                 f_list_geonode_uploaded_dir = [ geonode_uploaded_dir+f for f in os.listdir(geonode_uploaded_dir) if len(os.path.splitext(f))>1 ]
@@ -38,25 +45,6 @@ class YourCode(object):
                                 #print 'folder: ',d,'deleted'
                 time.sleep(1)
 
-class MyDaemon(Daemon):
-        def run(self):
-               # Or simply merge your code with MyDaemon.
-               your_code = YourCode()
-               your_code.run()
-
-if __name__ == "__main__":
-        daemon = MyDaemon('/tmp/daemon-example.pid')
-        if len(sys.argv) == 2:
-                if 'start' == sys.argv[1]:
-                        daemon.start()
-                elif 'stop' == sys.argv[1]:
-                        daemon.stop()
-                elif 'restart' == sys.argv[1]:
-                        daemon.restart()
-                else:
-                        print "Unknown command"
-                        sys.exit(2)
-                sys.exit(0)
-        else:
-                print "usage: %s start|stop|restart" % sys.argv[0]
-                sys.exit(2)
+app = App()
+deamon_runner = runner.DaemonRunner(app)
+deamon_runner.do_action()
